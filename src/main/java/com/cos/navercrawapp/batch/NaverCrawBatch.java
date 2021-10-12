@@ -26,7 +26,7 @@ public class NaverCrawBatch {
 	private long aid = 277493;
 	private final NaverNewsRepository naverNewsRepository;
 	
-	@Scheduled(cron = "0 24 11 * * *", zone = "Asia/Seoul")
+	@Scheduled(cron = "0 0 1 * * *", zone = "Asia/Seoul")
 	public void 네이버뉴스크롤링() {
 		System.out.println("배치 프로그램 시작======================");	
 		
@@ -74,7 +74,7 @@ public class NaverCrawBatch {
 				naverNewsList.add(NaverNews.builder()
 						.title(title)
 						.company(company)
-						.createdAt(Timestamp.valueOf(LocalDateTime.now().minusHours(1)))
+						.createdAt(Timestamp.valueOf(LocalDateTime.now().minusHours(1).plusHours(9)))
 						.build()
 			   );
 				
